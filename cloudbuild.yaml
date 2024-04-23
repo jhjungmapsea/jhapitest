@@ -1,0 +1,14 @@
+﻿options:
+  logging: CLOUD_LOGGING_ONLY
+  
+projectId: season-mapsea
+steps:
+- name: gcr.io/k8s-skaffold/pack
+  entrypoint: pack
+  args:
+  - build
+  - asia-northeast3-docker.pkg.dev/season-mapsea/jh-webapi-test
+  - --builder
+  - gcr.io/buildpacks/builder:latest
+  - --network
+  - cloudbuild
